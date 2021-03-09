@@ -1,0 +1,135 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+h1,
+h2,
+h3 {
+  position: relative;
+  top: -40px;
+}
+h1 {
+  color: #557174;
+  font-size: 50px;
+}
+
+h2,
+h3 {
+  color: #9dad7f;
+  font-size: 30px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+ul {
+  color: #9dad7f;
+  font-size: 18px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #557174;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #9dad7f;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.card {
+  display: block;
+  margin: 0 auto;
+  background-color: #f7f7e8;
+  max-width: 800px;
+  box-shadow: rgba(37, 39, 89, 0.15) 0 5px 10px 0;
+}
+.card-body {
+  padding: 5px;
+}
+
+.forecast {
+  position: relative;
+  left: 12px;
+  bottom: 20px;
+}
+
+.Toronto {
+  border: 0 solid;
+  box-shadow: none;
+  text-align: center;
+}
+
+.day {
+  color: #ffffff;
+  font-weight: 700px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: rgba(37, 39, 89, 0.15) 0 5px 5px 0;
+  background-color: #557174;
+  padding: 10px;
+  line-height: 40px;
+  margin-top: 5px;
+}
+
+.btn-outline-success,
+.btn-outline-secondary {
+  border-color: #557174;
+  color: #f7f7e8;
+  background-color: #557174;
+  box-shadow: rgba(37, 39, 89, 0.15) 0 5px 10px 0;
+}
+
+.form-control {
+  border: 1px solid #557174;
+  box-shadow: rgba(37, 39, 89, 0.15) 0 5px 10px 0;
+  margin-left: 100px;
+}
+
+.kristen {
+  text-align: center;
+  margin-top: 10px;
+  color: #557174;
+  font-size: 15px;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f7f7e8;
+  color: #557174;
+  border-color: #557174;
+  transition: all 200ms ease-in-out;
+}
+.btn-outline-success:hover {
+  background-color: #f7f7e8;
+  color: #557174;
+  border-color: #557174;
+  transition: all 200ms ease-in-out;
+}
+
+.cloud {
+  font-size: 60px;
+}
+
+.main-degree {
+  position: relative;
+  left: 60px;
+  bottom: 50px;
+}
+.main-degree,
+.degree-c {
+  color: #557174;
+  font-size: 65px;
+}
+
+.degree-c:hover {
+  color: #9dad7f;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}

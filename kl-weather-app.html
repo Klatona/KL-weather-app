@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="src/style.css">
+
+    <script src="https://kit.fontawesome.com/bee16e6aa3.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body background">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <form id="search-form">
+                            <div class="input-group mb-5 mt-5">
+                                <input type="text" class="form-control" id="search-text" placeholder="Enter a city"
+                                    autofocus autocomplete=off />
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                                    <i class="fas fa-search"></i></button>
+                            </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-outline-success mb-5 mt-5" id="current-button">Current
+                        </button>
+
+                    </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card Toronto">
+                                <div class="card-body">
+                                    <h1 id="city"> </h1>
+                                    <h2 id="day-time">
+                                        Wednesday 8:11pm
+                                        <br />
+                                    </h2>
+                                    <h3 id="condition">
+                                        Cloudy
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-sm-center">
+                        <div class="col-sm-8">
+                            <div class="card Toronto">
+                                <div class="card-body">
+
+                                    <p class="main-degree">
+                                        <i class="fas fa-cloud cloud"></i>
+                                        <span id="main-temp">
+                                            1
+                                        </span>
+                                        <span class="degree-c">
+                                            <a href="#" id="c-temp"> ºC </a>
+                                        </span>
+                                        |
+                                        <span class="degree-f">
+                                            <a href="#" id="f-temp"> ºF</a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card Toronto">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>
+                                            Humidity:
+                                            <span id="humidity">
+                                                10%
+                                            </span>
+                                        </li>
+                                        <li>
+                                            Wind:
+                                            <span id="wind">
+                                                2km/h
+                                            </span>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-md-center forecast">
+                        <div class="col-md-2">
+                            <div class="card day">
+                                <div class="card-body">
+                                    <p>
+                                        Thu
+                                        <br />
+                                        <i class="fas fa-cloud-sun"></i>
+                                    </p>
+                                    <p>
+                                        4º
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card day">
+                                <div class="card-body">
+                                    <p>
+                                        Fri
+                                        <br />
+                                        <i class="fas fa-snowflake"></i>
+                                    </p>
+                                    <p>
+                                        -3º
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card day">
+                                <div class="card-body">
+                                    Sat
+                                    <br />
+                                    <p>
+                                        <i class="fas fa-cloud"></i>
+                                    </p>
+                                    <p>
+                                        -4º
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card day">
+                                <div class="card-body">
+                                    Sun
+                                    <br />
+                                    <p>
+                                        <i class="fas fa-snowflake"></i>
+                                    </p>
+                                    <p>
+                                        -3º
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card day">
+                                <div class="card-body">
+                                    Mon
+                                    <br />
+                                    <p>
+                                        <i class="fas fa-cloud-sun"></i>
+                                    </p>
+                                    <p>
+                                        -4º
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <p class="kristen">
+        This page was built by
+        <a href="https://www.linkedin.com/in/kristenlatona" target="_blank">
+            Kristen Latona
+        </a>
+    </p>
+
+    <script src="src/script.js"> </script>
+
+</body>
+
+</html>
