@@ -15,6 +15,26 @@ function submitSearch(event){
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitSearch);
 
+function formatDate (timestamp) {
+  let now = new Date (timestamp);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[now.getDay()];
+return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date (timestamp);
+  let hours = now.getHours();
+  if(hours < 10){
+  hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if(minutes < 10){
+  minutes = `0${minutes}`;  
+}
+return `${hours}:${minutes}`;
+}
+
 function showTemp(response){
   document.querySelector("#city").innerHTML=response.data.name;
   document.querySelector("#country").innerHTML=response.data.sys.country;
@@ -29,6 +49,8 @@ function showTemp(response){
   let currentWind = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#wind");
   wind.innerHTML = `${currentWind} km/h`;
+  let currentDate = document.querySelector("#day-time");
+  currentDate.innerHTML = formatDate(response.data.dt*1000);
 
 }
 function showPosition(position) {
@@ -51,23 +73,13 @@ currentButton.addEventListener("click", getCurrentPosition);
 
 searchCity("Toronto");
 
-function formatDate (date) {
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let day = days[now.getDay()];
-let hours = now.getHours();
-if(hours < 10){
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if(minutes < 10){
-  minutes = `0${minutes}`;
-}
-return `${day} ${hours}:${minutes}`;
-}
-let now = new Date ();
-let h2 = document.querySelector("h2");
 
-h2.innerHTML= formatDate(now);
+
+
+
+//let h2 = document.querySelector("h2");
+
+//h2.innerHTML= formatDate(now);
 
 //function changeTempF(event) {
   //event.preventDefault();
