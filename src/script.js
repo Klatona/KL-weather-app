@@ -16,7 +16,9 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitSearch);
 
 function showTemp(response){
-  document.querySelector("h1").innerHTML=response.data.name;
+  document.querySelector("#city").innerHTML=response.data.name;
+  document.querySelector("#country").innerHTML=response.data.sys.country;
+
   document.querySelector("#main-temp").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("h3").innerHTML = response.data.weather[0].main;
   
@@ -27,6 +29,7 @@ function showTemp(response){
   let currentWind = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#wind");
   wind.innerHTML = `${currentWind} km/h`;
+
 }
 function showPosition(position) {
   let apiKey = "66d807cb5401e2d37e109b69127e15b2";
