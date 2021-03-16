@@ -42,6 +42,8 @@ function showTemp(response){
   document.querySelector("#main-temp").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("h3").innerHTML = response.data.weather[0].main;
   
+  celsiusTemp = response.data.main.temp;
+
   let currentHumidity = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `${currentHumidity}%`;
@@ -73,29 +75,35 @@ currentButton.addEventListener("click", getCurrentPosition);
 
 searchCity("Toronto");
 
+//Unit Conversion//
+
+function showFahTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#main-temp");
+  celsiusLink.classList.remove("active");
+  fLink.classList.add("active");
+  let fTemp = (celsiusTemp*9)/5 + 32;
+  tempElement.innerHTML= Math.round(fTemp);
+}
 
 
+function showCelTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#main-temp");
+  celsiusLink.classList.add("active");
+  fLink.classList.remove("active");
+  tempElement.innerHTML= Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
+let fLink = document.querySelector("#f-link");
+fLink.addEventListener("click", showFahTemp);
+
+let celsiusLink = document.querySelector("#c-link");
+celsiusLink.addEventListener("click", showCelTemp);
 
 
-//let h2 = document.querySelector("h2");
-
-//h2.innerHTML= formatDate(now);
-
-//function changeTempF(event) {
-  //event.preventDefault();
-  //let temp = document.querySelector("#main-temp");
-  //temp.innerHTML=`34`;
-//}
-//let mainTemp = document.querySelector("#f-temp");
-//mainTemp.addEventListener("click", changeTempF);
-
-//function changeTempC(event) {
-  //event.preventDefault();
-  //let tempC = document.querySelector("#main-temp");
-  //tempC.innerHTML=`1`;
-//}
-//let mainTempC = document.querySelector("#c-temp");
-//mainTempC.addEventListener("click", changeTempC);
 
 
   
