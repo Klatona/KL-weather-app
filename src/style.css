@@ -34,14 +34,30 @@ ul {
 
 a {
   text-decoration: none;
-  color: #557174;
 }
 
+.kristen a:hover,
 a:hover {
   text-decoration: underline;
   color: #9dad7f;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+}
+
+.degree-f a,
+.degree-c a {
+  color: #9dad7f;
+}
+
+.kristen a {
+  text-decoration: none;
+  color: #557174;
+}
+.kristen {
+  text-align: center;
+  margin-top: 10px;
+  color: #557174;
+  font-size: 15px;
 }
 
 .card {
@@ -93,13 +109,6 @@ a:hover {
   margin-left: 105px;
 }
 
-.kristen {
-  text-align: center;
-  margin-top: 10px;
-  color: #557174;
-  font-size: 15px;
-}
-
 .btn-outline-secondary:hover {
   background-color: #f7f7e8;
   color: #557174;
@@ -114,12 +123,12 @@ a:hover {
 }
 
 .main-degree .active {
-  color: #9dad7f;
+  color: #557174;
   cursor: default;
 }
 
 .main-degree .active:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .main-degree {
@@ -127,8 +136,8 @@ a:hover {
   left: 60px;
   bottom: 50px;
 }
-.main-degree,
-.degree-c {
+
+.main-degree {
   color: #557174;
   font-size: 65px;
 }
