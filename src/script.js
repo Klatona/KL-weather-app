@@ -35,7 +35,30 @@ function formatHours(timestamp) {
 return `${hours}:${minutes}`;
 }
 
+let iconCodes = [
+    {'01d':'fas fa-sun',  
+    '01n':'fas fa-moon',
+    '02d':'fas fa-cloud-sun',
+    '02n':'fas fa-cloud-moon',
+    '03d':'fas fa-cloud',
+    '03n':'fas fa-cloud',
+    '04d':'fas fa-cloud',
+    '04n':'fas fa-cloud',
+    '09d':'fas fa-cloud-showers-heavy',
+    '09n':'fas fa-cloud-showers-heavy',
+    '10d':'fas fa-cloud-sun-rain',
+    '10n':'fas fa-cloud-moon-rain',
+    '11d':'fas fa-bolt',
+    '11n':'fas fa-bolt',
+    '13d':'far fa-snowflake',
+    '13n':'far fa-snowflake',
+    '50d':'fas fa-smog',  // day mist   
+    '50n':'fas fa-smog'  // night mist    
+   }
+  ];
+
 function showTemp(response){
+  console.log(response.data);
   document.querySelector("#city").innerHTML=response.data.name;
   document.querySelector("#country").innerHTML=response.data.sys.country;
 
@@ -53,8 +76,13 @@ function showTemp(response){
   wind.innerHTML = `${currentWind} km/h`;
   let currentDate = document.querySelector("#day-time");
   currentDate.innerHTML = formatDate(response.data.dt*1000);
+  let iconElement = document.querySelector("#main-icon");
+  iconElement.setAttribute ("class", iconCodes[0][response.data.weather[0].icon]);
 
 }
+
+//Current Button//
+
 function showPosition(position) {
   let apiKey = "66d807cb5401e2d37e109b69127e15b2";
   let unit = "Metric";
@@ -74,6 +102,7 @@ let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
 searchCity("Toronto");
+
 
 //Unit Conversion//
 
@@ -106,4 +135,3 @@ celsiusLink.addEventListener("click", showCelTemp);
 
 
 
-  

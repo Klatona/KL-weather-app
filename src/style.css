@@ -113,10 +113,6 @@ a:hover {
   transition: all 200ms ease-in-out;
 }
 
-.cloud {
-  font-size: 60px;
-}
-
 .main-degree .active {
   color: #9dad7f;
   cursor: default;
@@ -141,4 +137,8 @@ a:hover {
   color: #9dad7f;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+}
+#main-icon,
+#main-temp {
+  font-size: 60px;
 }
