@@ -58,7 +58,6 @@ let iconCodes = [
   ];
 
 function showTemp(response){
-  console.log(response.data);
   document.querySelector("#city").innerHTML=response.data.name;
   document.querySelector("#country").innerHTML=response.data.sys.country;
 
