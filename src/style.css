@@ -85,14 +85,17 @@ a:hover {
 
 .day {
   color: #ffffff;
-  font-weight: 700px;
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
   box-shadow: rgba(37, 39, 89, 0.15) 0 5px 5px 0;
   background-color: #557174;
   padding: 10px;
   line-height: 40px;
   margin-top: 5px;
+}
+
+.day strong {
+  font-weight: 900px;
 }
 
 .btn-outline-success,
