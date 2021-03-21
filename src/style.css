@@ -78,6 +78,10 @@ a:hover {
 }
 
 .Toronto {
+  position: relative;
+}
+.Toronto,
+.condition {
   border: 0 solid;
   box-shadow: none;
   text-align: center;
@@ -136,7 +140,7 @@ a:hover {
 
 .main-degree {
   position: relative;
-  left: 60px;
+  left: 40px;
   bottom: 50px;
 }
 
