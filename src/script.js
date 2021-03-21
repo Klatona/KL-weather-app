@@ -1,20 +1,3 @@
-function searchCity (city){
-  let apiKey = "66d807cb5401e2d37e109b69127e15b2";
-  let unit = "Metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showTemp);
-}
-
-
-function submitSearch(event){
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-text").value;
-  searchCity(searchInput);
-}
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", submitSearch);
-
 function formatDate (timestamp) {
   let now = new Date (timestamp);
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -34,6 +17,53 @@ function formatHours(timestamp) {
 }
 return `${hours}:${minutes}`;
 }
+
+function displayForecast (response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for(let index = 0; index < 6; index ++){
+    forecast = response.data.list[index];
+    forecastElement.innerHTML +=
+     `<div class="col-md-2">
+          <div class="card day">
+             <div class="card-body">
+                 <p>
+                      ${formatHours(forecast.dt*1000)}
+                      <br />
+                      <i class="${iconCodes[0][forecast.weather[0].icon]}"></i>
+                </p>
+                <p>
+                  <strong>${Math.round(forecast.main.temp_max)}º</strong>
+                  <span>${Math.round(forecast.main.temp_min)}º</span>
+                </p>
+               </div>
+              </div>
+            </div>`;                   
+  }                  
+  
+}
+
+function searchCity (city){
+  let apiKey = "66d807cb5401e2d37e109b69127e15b2";
+  let unit = "Metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showTemp);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
+function submitSearch(event){
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-text").value;
+  searchCity(searchInput);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitSearch);
 
 let iconCodes = [
     {'01d':'fas fa-sun',  
