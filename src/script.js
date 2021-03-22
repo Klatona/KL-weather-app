@@ -35,8 +35,8 @@ function displayForecast (response) {
                       <i class="${iconCodes[0][forecast.weather[0].icon]}"></i>
                 </p>
                 <p>
-                  <strong>${Math.round(forecast.main.temp_max)}º</strong>
-                  <span>${Math.round(forecast.main.temp_min)}º</span>
+                  <strong id="max-temp">${Math.round(forecast.main.temp_max)}º</strong>
+                  <span id="min-temp">${Math.round(forecast.main.temp_min)}º</span>
                 </p>
                </div>
               </div>
@@ -138,19 +138,30 @@ searchCity("Toronto");
 function showFahTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#main-temp");
+  let maxTemp = document.querySelector("#max-temp");
+  let minTemp = document.querySelector("#min-temp");
+
+
   celsiusLink.classList.remove("active");
   fLink.classList.add("active");
   let fTemp = (celsiusTemp*9)/5 + 32;
   tempElement.innerHTML= Math.round(fTemp);
+  maxTemp.innerHTML= Math.round(fTemp);
+  minTemp.innerHTML= Math.round(fTemp);
 }
 
 
 function showCelTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#main-temp");
+  let maxTemp = document.querySelector("#max-temp");
+  let minTemp = document.querySelector("#min-temp");
+
   celsiusLink.classList.add("active");
   fLink.classList.remove("active");
   tempElement.innerHTML= Math.round(celsiusTemp);
+  maxTemp.innerHTML= Math.round(celsiusTemp);
+  minTemp.innerHTML= Math.round(celsiusTemp);
 }
 
 let celsiusTemp = null;
