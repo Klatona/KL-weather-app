@@ -35,8 +35,8 @@ function displayForecast (response) {
                       <i class="${iconCodes[0][forecast.weather[0].icon]}"></i>
                 </p>
                 <p>
-                  <strong id="max-temp">${Math.round(forecast.main.temp_max)}º</strong>
-                  <span id="min-temp">${Math.round(forecast.main.temp_min)}º</span>
+                  <strong> <span class="max-temp">${Math.round(forecast.main.temp_max)}</span>º</strong>
+                  <span class="min-temp">${Math.round(forecast.main.temp_min)}</span>º
                 </p>
                </div>
               </div>
@@ -138,32 +138,61 @@ searchCity("Toronto");
 function showFahTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#main-temp");
-  let maxTemp = document.querySelector("#max-temp");
-  let minTemp = document.querySelector("#min-temp");
-
 
   celsiusLink.classList.remove("active");
   fLink.classList.add("active");
   let fTemp = (celsiusTemp*9)/5 + 32;
   tempElement.innerHTML= Math.round(fTemp);
-  maxTemp.innerHTML= Math.round(fTemp);
-  minTemp.innerHTML= Math.round(fTemp);
-}
 
+  let forecastMax = document.querySelectorAll(".max-temp");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Fahrenheit
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  let forecastMin = document.querySelectorAll(".min-temp");
+  forecastMin.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Fahrenheit
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+ // to avoid double conversion
+  celsiusLink.addEventListener("click", showCelTemp);
+  fLink.removeEventListener("click", showFahTemp);
+}
+  
 
 function showCelTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#main-temp");
-  let maxTemp = document.querySelector("#max-temp");
-  let minTemp = document.querySelector("#min-temp");
-
+  
   celsiusLink.classList.add("active");
   fLink.classList.remove("active");
   tempElement.innerHTML= Math.round(celsiusTemp);
-  maxTemp.innerHTML= Math.round(celsiusTemp);
-  minTemp.innerHTML= Math.round(celsiusTemp);
-}
 
+let forecastMax = document.querySelectorAll(".max-temp");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let forecastMin = document.querySelectorAll(".min-temp");
+  forecastMin.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  // to avoid double conversion
+  celsiusLink.removeEventListener("click", showCelTemp);
+  fLink.addEventListener("click", showFahTemp);
+}
+ 
 let celsiusTemp = null;
 
 let fLink = document.querySelector("#f-link");
