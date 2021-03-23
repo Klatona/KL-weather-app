@@ -35,7 +35,7 @@ function displayForecast (response) {
                       <i class="${iconCodes[0][forecast.weather[0].icon]}"></i>
                 </p>
                 <p>
-                  <strong> <span class="max-temp">${Math.round(forecast.main.temp_max)}</span>º</strong>
+                  <strong> <span class="max-temp">${Math.round(forecast.main.temp_max)}</span>º |</strong>
                   <span class="min-temp">${Math.round(forecast.main.temp_min)}</span>º
                 </p>
                </div>
